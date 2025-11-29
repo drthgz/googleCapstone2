@@ -77,7 +77,7 @@ Rendered export: [../assets/enterprise_it_ops_architecture.png](../assets/enterp
   - Benchmarks comparing synthetic vs real data runs.
 
 ## Deployment Targets
-- **Prototype:** Jupyter notebook + Gradio chat + Try ADK web (already scaffolded).
+- **Prototype:** Jupyter notebook + Gradio chat + Try ADK web + Streamlit UI (`ui/streamlit_app.py`).
 - **Next stage:** Package as Python module for `adk web` and containerize for Cloud Run.
 - **Streamlit rationale:** Streamlit offers a Python-native path to a polished dashboard—ideal for rapidly exposing the multi-agent workflow to stakeholders without front-end engineering. It reuses our existing analytics code, supports charts and controls out of the box, and can be deployed to Streamlit Cloud or Cloud Run for rubric-ready demonstrations.
 - **Future:** Streamlit UI with authenticated access and scheduled batch runs for capacity reports.

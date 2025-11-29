@@ -42,6 +42,7 @@ The synthetic helpers power unit tests, the evaluation notebook, and the CLI run
 Two execution paths keep the workflow flexible. `scripts/quick_supervisor_demo.py` is a lightweight smoke test that prints the agent hierarchy and sample tool outputs without touching live LLMs. `scripts/run_adk_supervisor.py` drives the full ADK InMemoryRunner with Gemini, mirroring production behavior. Both respect `.env` for credentials, and every significant run is timestamped in `history.d` so we can prove provenance during judging.
 
 Transcripts and logs land in [reports/evaluation/examples/](../reports/evaluation/examples/), giving us ready-to-attach evidence for the submission. References: [scripts/quick_supervisor_demo.py](../scripts/quick_supervisor_demo.py), [scripts/run_adk_supervisor.py](../scripts/run_adk_supervisor.py), and [history.d](../history.d).
+- Streamlined UI: [../ui/streamlit_app.py](../ui/streamlit_app.py) offers a browser-based command center that streams supervisor transcripts for demo capture.
 
 ## 8. Evaluation & Metrics
 Evaluation centers on whether the system truly accelerates incident response. Tool-level smoke tests confirm each FunctionTool returns deterministic data. An end-to-end pytest drives the supervisor with Gemini to validate that the leadership summary remains well formed. The evaluation notebook shells out to the runner and captures a full transcript—the same output archived in our evidence pack.

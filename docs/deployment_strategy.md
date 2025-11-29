@@ -8,7 +8,7 @@ This guide explains how the Enterprise IT Operations Agent moves from notebooks 
    - Deliverable: `it_ops_observability` module with `create_agent()` used by `adk web`.
 2. **Streamlit Dashboard (stakeholder UI)**
    - Purpose: Offer business stakeholders an intuitive cockpit for incident review, capacity planning, and SLA audits.
-   - Deliverable: `app/streamlit_dashboard.py` leveraging ADK runners via function calls or REST endpoints.
+   - Deliverable: `ui/streamlit_app.py` leveraging ADK runners via direct function calls.
 3. **Cloud Run Deployment (production path)**
    - Purpose: Demonstrate deployability and support rubric bonus points.
    - Deliverable: Containerized Streamlit app with environment-configured credentials and logging.
@@ -20,11 +20,11 @@ This guide explains how the Enterprise IT Operations Agent moves from notebooks 
 - [ ] Capture screenshots and note CLI commands for documentation.
 
 ### 2. Streamlit Dashboard
-- [ ] Scaffold Streamlit app with sidebar controls (incident selection, log filters, time range).
-- [ ] Integrate ADK runner calls (async handling or background tasks) to fetch responses.
+- [x] Scaffold Streamlit app with sidebar controls (incident selection, log filters, time range).
+- [x] Integrate ADK runner calls (async handling or background tasks) to fetch responses.
 - [ ] Display key metrics (charts), summaries, and action recommendations.
 - [ ] Add configuration for API keys (dotenv or secret manager) and note security considerations.
-- [ ] Provide local run instructions (`streamlit run app/streamlit_dashboard.py`).
+- [x] Provide local run instructions (`PYTHONPATH=src streamlit run ui/streamlit_app.py`).
 
 ### 3. Containerization & Cloud Run
 - [ ] Write Dockerfile based on official Streamlit/ADK images.

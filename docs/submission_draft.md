@@ -55,6 +55,7 @@ When a machine lacks the raw datasets, synthetic bursts keep the briefing vivid 
 - **Supervisor CLI and Notebook:** `scripts/run_adk_supervisor.py --verbose` drives the full ADK InMemoryRunner with Gemini. The evaluation notebook (`notebooks/evaluation/run_evaluation.ipynb`) shells out to this script, captures stdout/stderr, and stores transcripts under `reports/evaluation/examples/`.
 - **Lightweight Demo Script:** `scripts/quick_supervisor_demo.py` prints the agent tree plus sample tool outputs without making live API calls—ideal for smoke tests.
 - **Reproducible Artifacts:** Architecture diagram and screenshots are generated programmatically (`scripts/generate_architecture_diagram.py` and `assets/screenshots/`). Every substantive run and measurement is logged in `history.d` or `reports/evaluation/examples/` for auditability.
+- **Streamlined UI:** `ui/streamlit_app.py` provides a browser-based command center so stakeholders can run the supervisor, view transcripts, and capture screenshots without touching the CLI.
 
 ---
 

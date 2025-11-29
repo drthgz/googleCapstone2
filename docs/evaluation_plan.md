@@ -95,6 +95,7 @@ This plan defines how we will measure the Enterprise IT Operations Agent against
 - Record evaluation metrics in a summary table for the Kaggle write-up and LinkedIn blog.
 - Current assets: [../assets/screenshots/evaluation_notebook_run.png](../assets/screenshots/evaluation_notebook_run.png) (notebook run), [../assets/screenshots/pytest_pass.png](../assets/screenshots/pytest_pass.png) (pytest summary), [../assets/enterprise_it_ops_architecture.png](../assets/enterprise_it_ops_architecture.png) (architecture diagram).
 - Metrics archive: [../reports/evaluation/examples/metrics_2025-11-29.json](../reports/evaluation/examples/metrics_2025-11-29.json).
+- Streamlit UI (new): launch with `PYTHONPATH=src streamlit run ui/streamlit_app.py` to capture interactive transcripts; add screenshot to `assets/screenshots/` once recorded.
 - Latest measurements (2025-11-29):
    - End-to-end supervisor pytest: 10.68s wall time (`tests/test_runner.py::test_supervisor_runner_outputs_summary`, `--durations=5`).
    - `scripts/run_adk_supervisor.py --verbose` via `/usr/bin/time`: 10.01s real / 3.49s user / 0.09s sys.
