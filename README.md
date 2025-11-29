@@ -73,6 +73,12 @@ PYTHONPATH=src streamlit run ui/streamlit_app.py
 
 The page accepts one prompt per line (preloaded with the standard leadership briefing flow), streams responses from each agent, and keeps the transcript in the browser for screenshotting. Verbose mode surfaces tool traces so reviewers can see delegation in action.
 
+| View | Screenshot |
+| --- | --- |
+| Dashboard metrics and log signals | ![Streamlit dashboard](assets/screenshots/UI_Dashboard.png) |
+| Live supervisor transcript | ![Transcript tab](assets/screenshots/UI_AgentsTextual_Response.png) |
+| Default prompts before execution | ![Prompt block](assets/screenshots/UI_BasicRun.png) |
+
 ## Rubric Coverage Plan
 We track rubric alignment in [`docs/rubric_mapping.md`](docs/rubric_mapping.md), mapping every required feature (multi-agent, tools, memory, observability, deployment, documentation, bonus points) to concrete deliverables and current status.
 

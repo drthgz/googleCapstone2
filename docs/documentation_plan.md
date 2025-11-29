@@ -45,6 +45,7 @@ This guide outlines all written deliverables required for the capstone submissio
 
 ## 4. Evidence Artifacts
 - Store evaluation outputs (`reports/evaluation/`), screenshots (`assets/screenshots/`), and deployment logs for reference.
+- Latest Streamlit walkthrough captures: `UI_BasicRun.png`, `UI_Dashboard.png`, `UI_AgentsTextual_Response.png` for runbook and submission visuals.
 - Maintain `history.d` as an ongoing changelog for easy retrospective writes.
 
 ## 5. Review & Publishing Timeline
