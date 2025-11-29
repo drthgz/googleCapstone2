@@ -121,7 +121,7 @@ Cost assumptions, free-tier considerations, and a bill of materials table are ca
 - [x] Define an evaluation plan (datasets, metrics, ADK eval scripts) and create a reproducible testing checklist.
 - [x] Flesh out deployment approach (Streamlit/ADK web/Cloud Run) with configuration steps and environment requirements.
 - [x] Draft documentation deliverables: README sections, architecture doc, setup guide, and submission write-up outline.
-- [ ] Plan storytelling assets: outline the LinkedIn blog post, capture visuals, and script the submission video.
-- [ ] Verify compliance tasks: secret handling policy, licensing notes, and contribution guidelines for collaborators.
-- [ ] Schedule milestone timeline leading to Kaggle submission, including buffer for review and polish.
+- [x] Plan storytelling assets: outline the LinkedIn blog post, capture visuals, and script the submission video (see `docs/storytelling_assets.md`).
+- [x] Verify compliance tasks: secret handling policy, licensing notes, and contribution guidelines for collaborators (see `docs/compliance_checklist.md`).
+- [x] Schedule milestone timeline leading to Kaggle submission, including buffer for review and polish (see `docs/milestone_timeline.md`).
 

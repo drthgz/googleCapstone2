@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import asyncio
 import os
-from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, List
@@ -15,11 +14,7 @@ from google.adk.models.google_llm import _ResourceExhaustedError
 from google.adk.runners import InMemoryRunner
 
 from it_ops_observability import AgentSettings, create_supervisor_agent
-from it_ops_observability.tools import (
-    fetch_incident_digest,
-    fetch_server_logs,
-    summarize_utilization,
-)
+from it_ops_observability.dashboard import build_dashboard_snapshot
 
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
@@ -94,46 +89,9 @@ def _resolve_sender(event: object) -> str:
     if raw_str in FRIENDLY_SENDER_NAMES:
         return FRIENDLY_SENDER_NAMES[raw_str]
     return raw_str.replace("_", " ").title()
-
-
-def _parse_logs(raw: str) -> List[dict]:
-    entries: List[dict] = []
-    for line in raw.splitlines():
-        if not line.strip():
-            continue
-        parts = line.split(" ", 2)
-        if len(parts) < 3:
-            continue
-        timestamp, level_part, remainder = parts
-        level = level_part.strip("[]").upper()
-        message = remainder.strip()
-        component = ""
-        if ": " in message:
-            component, message = message.split(": ", 1)
-        entries.append(
-            {
-                "timestamp": timestamp,
-                "level": level,
-                "component": component.strip(),
-                "message": message.strip(),
-            }
-        )
-    return entries
-
-
 @st.cache_data(show_spinner=False)
 def _load_dashboard_snapshot(server_id: str, window_minutes: int) -> dict:
-    summary = summarize_utilization(hours=24)
-    logs_text = fetch_server_logs(server_id=server_id, window_minutes=window_minutes)
-    digest = fetch_incident_digest()
-    parsed_logs = _parse_logs(logs_text)
-    severity_counts = Counter(entry["level"] for entry in parsed_logs)
-    return {
-        "summary": summary,
-        "logs": parsed_logs,
-        "digest": digest,
-        "severity_counts": dict(severity_counts),
-    }
+    return build_dashboard_snapshot(server_id, window_minutes)
 
 
 def _run_supervisor(prompts: List[str], verbose: bool) -> List[TranscriptTurn]:
@@ -318,7 +276,7 @@ with overview_tab:
                 display_df[["display_ts", "level", "message"]]
                 .head(12)
                 .rename(columns={"display_ts": "timestamp"}),
-                use_container_width=True,
+                width="stretch",
                 height=240,
             )
         else:
