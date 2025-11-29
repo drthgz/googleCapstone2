@@ -45,7 +45,10 @@ Success metrics, datasets, scenarios, and reporting expectations are documented 
 2.  Set up Google Cloud credentials.
 
 ## Deployment
-{{Add instructions on how to Deploy to GCP and take advantage of Gemeni}}
+
+Detailed rollout steps for Try ADK web, Streamlit, and Cloud Run live in [`docs/deployment_strategy.md`](docs/deployment_strategy.md). A full deployment guide with commands will be produced during implementation.
+
+Cost assumptions, free-tier considerations, and a bill of materials table are captured in [`docs/cost_estimate.md`](docs/cost_estimate.md).
 
 ## Planning Checklist
 - [x] Finalize the detailed problem statement and success metrics (e.g., MTTR reduction, SLA adherence).
@@ -53,8 +56,8 @@ Success metrics, datasets, scenarios, and reporting expectations are documented 
 - [x] Produce an architecture brief covering agent hierarchy, tool flows, memory/session strategy, and observability hooks (include diagrams).
 - [x] Map rubric features to planned implementations (tools, multi-agent, memory/evaluation/deployment) and validate coverage of ≥3 required concepts.
 - [x] Define an evaluation plan (datasets, metrics, ADK eval scripts) and create a reproducible testing checklist.
-- [ ] Flesh out deployment approach (Streamlit/ADK web/Cloud Run) with configuration steps and environment requirements.
-- [ ] Draft documentation deliverables: README sections, architecture doc, setup guide, and submission write-up outline.
+- [x] Flesh out deployment approach (Streamlit/ADK web/Cloud Run) with configuration steps and environment requirements.
+- [x] Draft documentation deliverables: README sections, architecture doc, setup guide, and submission write-up outline.
 - [ ] Plan storytelling assets: outline the LinkedIn blog post, capture visuals, and script the submission video.
 - [ ] Verify compliance tasks: secret handling policy, licensing notes, and contribution guidelines for collaborators.
 - [ ] Schedule milestone timeline leading to Kaggle submission, including buffer for review and polish.

@@ -81,6 +81,12 @@ This document summarizes how the Enterprise IT Operations Agent is structured, i
 - **Next stage:** Package as Python module for `adk web` and containerize for Cloud Run.
 - **Streamlit rationale:** Streamlit offers a Python-native path to a polished dashboard—ideal for rapidly exposing the multi-agent workflow to stakeholders without front-end engineering. It reuses our existing analytics code, supports charts and controls out of the box, and can be deployed to Streamlit Cloud or Cloud Run for rubric-ready demonstrations.
 - **Future:** Streamlit UI with authenticated access and scheduled batch runs for capacity reports.
+- **Deployment checklist:**
+  1. Harden ADK module for `adk web` (export `create_agent()` + add CLI entry point).
+  2. Publish Streamlit dashboard that invokes ADK runners via local API or Python import.
+  3. Containerize Streamlit app with Vertex credentials + secrets loading (Dockerfile & README instructions).
+  4. Deploy container to Cloud Run, configuring IAM, environment variables, and logging integration.
+  5. Document rollout steps and verification tests for Kaggle submission.
 
 ## Open Questions
 - Which memory backend (Firestore vs AlloyDB vs local vector store) offers best balance for the capstone timeline?
