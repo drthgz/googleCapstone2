@@ -3,6 +3,7 @@
 This document summarizes how the Enterprise IT Operations Agent is structured, including agent hierarchy, tool interfaces, state management, observability, and deployment touchpoints.
 
 ## High-Level Diagram
+Rendered export: [../assets/enterprise_it_ops_architecture.png](../assets/enterprise_it_ops_architecture.png)
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
 │                          Enterprise Stakeholders                     │
@@ -19,11 +20,10 @@ This document summarizes how the Enterprise IT Operations Agent is structured, i
 └───────────────┬──────────────────────────────┬──────────────────────┘
                 │                              │
      ┌──────────▼────────┐            ┌────────▼─────────┐            ┌────────▼─────────┐
-     │ Log Analyst Agent │            │ Metric Analyst   │            │ Operations Planner│
-     │ - fetch_server_   │            │ - get_cpu_       │            │ - get_cpu_       │
-     │   logs tool       │            │   utilization tool│           │   utilization tool│
-     │ - Email parsers   │            │ - Forecast helper│            │ - read_incident_  │
-     │ - Trend scoring   │            │ - Anomaly labels │            │   emails tool     │
+    │ Log Analyst Agent │            │ Metric Analyst   │            │ Operations Planner│
+    │ - fetch_server_   │            │ - summarize_     │            │ - fetch_incident_ │
+    │   logs tool       │            │   utilization tool│           │   digest tool     │
+    │ - Anomaly scoring │            │ - Capacity trends│            │ - Action planner  │
      └──────────┬────────┘            └────────┬─────────┘            └────────┬─────────┘
                 │                              │                              │
        ┌────────▼────────┐            ┌────────▼─────────┐            ┌────────▼─────────┐
@@ -44,17 +44,17 @@ This document summarizes how the Enterprise IT Operations Agent is structured, i
   - Uses `fetch_server_logs` tool plus planned email parsing tool.
 - **Metric Analyst (`metric_analyst`)**
   - Computes rolling statistics, forecasts resource usage, flags SLO breaches.
-  - Uses `get_cpu_utilization` tool with future forecasting extension.
+  - Uses `summarize_utilization` tool with future forecasting extension.
 - **Operations Planner (`operations_planner`)**
   - Reads incident emails/tickets, coordinates remediation windows, crafts stakeholder messaging.
-  - Uses both metric stats and incident communications to recommend actions.
+  - Uses both metric stats and incident communications (via `fetch_incident_digest`) to recommend actions.
 
 ## Tooling Layer
 | Tool | Purpose | Inputs | Outputs | Notes |
 | --- | --- | --- | --- | --- |
 | `fetch_server_logs` | Retrieve latest log window for a given server or service. | `server_id`, `window_minutes` | Raw log text | Will expand to support filters (severity, component) and S3-based retrieval. |
-| `get_cpu_utilization` | Summarize CPU/memory peaks, averages, and anomalies. | `time_range` | Stats dict + trend commentary | Future: integrate Prophet/ARIMA forecast tool. |
-| `read_incident_emails` | Provide latest customer/vendor communications. | Optional filters (severity, source) | Email body text | To be extended with semantic search across ticket archive. |
+| `summarize_utilization` | Summarize CPU/memory peaks, averages, and anomalies. | `hours`, `include_recent` | Stats dict + recent samples | Future: integrate forecasting helpers and risk scoring. |
+| `fetch_incident_digest` | Provide latest customer/vendor communications. | None | Email-style briefing text | To be extended with semantic search across ticket archive. |
 | *Planned:* `assess_sla_policy` | Compare metric/log findings against SLA/OLAs. | Incident context | Pass/fail with rationale | Will use policy templates stored in config. |
 | *Planned:* `historical_lookup` | Retrieve similar incidents from memory store. | Feature vector / incident metadata | Summaries of prior mitigations | Requires vector database or ADK memory service. |
 

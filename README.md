@@ -24,6 +24,10 @@
     - **Operations Planner:** Combines incident communications with telemetry to propose remediation windows and stakeholder messaging.
 3. **Interface Layer:** Notebook experiments → Gradio prototype → Try ADK web → future Streamlit/Cloud Run deployment.
 
+![Enterprise IT Ops architecture](assets/enterprise_it_ops_architecture.png)
+
+> Evidence bundle: [pytest run screenshot](assets/screenshots/pytest_pass.png), [evaluation notebook transcript](assets/screenshots/evaluation_notebook_run.png), [latest verbose transcript](reports/evaluation/examples/2025-11-28_adk_supervisor_verbose_run_v2.txt).
+
 > Detailed diagrams, tool inventories, and deployment roadmap: [`docs/architecture_overview.md`](docs/architecture_overview.md).
 
 ## Data Sources

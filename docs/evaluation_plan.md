@@ -93,5 +93,6 @@ This plan defines how we will measure the Enterprise IT Operations Agent against
 - Capture screenshots or screen recordings of Try ADK web/Streamlit interactions during evaluation runs.
 - Store representative responses (with prompt/context) in `reports/evaluation/examples/`.
 - Record evaluation metrics in a summary table for the Kaggle write-up and LinkedIn blog.
+- Current assets: [../assets/screenshots/evaluation_notebook_run.png](../assets/screenshots/evaluation_notebook_run.png) (notebook run), [../assets/screenshots/pytest_pass.png](../assets/screenshots/pytest_pass.png) (pytest summary), [../assets/enterprise_it_ops_architecture.png](../assets/enterprise_it_ops_architecture.png) (architecture diagram).
 
 By following this plan, we ensure the project demonstrates measurable improvements and aligns tightly with the competition rubric.
