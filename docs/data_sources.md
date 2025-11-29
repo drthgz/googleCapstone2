@@ -17,7 +17,7 @@ This document captures the finalized datasets that power the Enterprise IT Opera
 
 ## Synthetic Augmentation
 - **Location:** `data/synthetic/`
-- **Generators:** Implemented in `scripts/generate_synthetic_data.py` (to be authored). Modules cover:
+- **Generators:** Implemented in `src/it_ops_observability/synthetic.py` (with CLI wrappers planned in `scripts/generate_synthetic_data.py`). Modules cover:
   - **Incident emails:** Parameterized templates for vendor outages, customer escalations, and maintenance notifications.
   - **Database logs:** Multi-technology samples (Postgres, MySQL, MongoDB) emphasizing backup failures, replication lag, and access breaches.
   - **Resource spikes:** Procedural CPU/memory curves introducing burst patterns not present in NAB to stress-test forecasting.
