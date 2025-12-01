@@ -4,8 +4,9 @@
 
 ## Quick Links
 - [Demo video (YouTube)](https://youtu.be/CvkVRCEwtHs)
-- Cloud Run deployment: run `gcloud run services describe it-ops-observability --format='value(status.url)'` to retrieve the live URL in your project.
-- [Submission draft](docs/submission_draft.md)
+- [Kaggle Submission](https://kaggle.com/competitions/agents-intensive-capstone-project/writeups/Enterprise-IT-Operations-Supervisor-Agent)
+- [Initial Prototyping Notebook on Kaggle](https://www.kaggle.com/code/syedfarazhussaini/multi-agent-system-for-it-observability)
+- [Streamlit command center live on Cloud Run](https://it-ops-observability-276950424289.us-central1.run.app)
 
 ## Problem Statement & Success Metrics
 **Business Problem.** Enterprise IT operations teams spend hours correlating fragmented telemetry (logs, metrics, incident emails) before they can brief leadership or execute a mitigation plan. The manual triage loop inflates mean time to resolution (MTTR), delays capacity planning, and leaves SLO violations unreported until customers escalate.
