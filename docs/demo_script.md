@@ -15,7 +15,7 @@ Use this to record the <3 minute YouTube submission. It hits the required beats 
 
 ### 0:00 – 0:25  •  Hook & Problem
 - On camera or voice over the Streamlit title screen.
-- Script: “Outages force IT leaders to scramble through logs, metrics, and emails before executives hear anything. That chaos can burn 30 minutes. This project builds an Enterprise IT Operations Supervisor Agent so leadership gets a trustworthy briefing in under five.”
+- Script: “Outages force IT leaders to scramble through logs, metrics, and emails before executives hear anything. That chaos can burn valuable minutes to hours. This project builds an Enterprise IT Operations Supervisor Agent so leadership gets a trustworthy briefing in under few minutes.”
 
 ### 0:25 – 0:55  •  Why Agents
 - Show the sidebar with the prompt block.
@@ -25,8 +25,8 @@ Use this to record the <3 minute YouTube submission. It hits the required beats 
 - Switch to the architecture image.
 - Script highlights:
   - “Supervisor agent on top, specialists below.”
-  - “Tools defined in `src/it_ops_observability/tools.py` call our log and metric adapters.”
-  - “Deterministic synthetic data keeps demos stable while letting us plug in real telemetry later.”
+  - “Tools as defined `src/it_ops_observability/tools.py` they call upon our log and metric adapters.”
+  - The Deterministic synthetic data keeps demos stable while letting us plug in real telemetry later.”
 
 ### 1:20 – 2:05  •  Live Demo Beat
 - Return to Streamlit, click **Run supervisor** right before you start talking.
